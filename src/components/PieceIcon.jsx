@@ -13,6 +13,13 @@ import kingBlack from "../../assets/pieces/king-black.png";
 
 import { Color } from "../../engine/util.js";
 
+import { Pawn } from "../../engine/pieces/pawn.js";
+import { Knight } from "../../engine/pieces/knight.js";
+import { Bishop } from "../../engine/pieces/bishop.js";
+import { Rook } from "../../engine/pieces/rook.js";
+import { Queen } from "../../engine/pieces/queen.js";
+import { King } from "../../engine/pieces/king.js";
+
 const IMAGES = {
   [Color.WHITE]: {
     Pawn: pawnWhite,
@@ -33,7 +40,21 @@ const IMAGES = {
 };
 
 export default function PieceIcon({ piece, pieceName, color, size = 34 }) {
-  const resolvedName = pieceName ?? piece?.constructor?.name;
+  const resolvedName =
+    pieceName ??
+    (piece instanceof Pawn
+      ? "Pawn"
+      : piece instanceof Knight
+        ? "Knight"
+        : piece instanceof Bishop
+          ? "Bishop"
+          : piece instanceof Rook
+            ? "Rook"
+            : piece instanceof Queen
+              ? "Queen"
+              : piece instanceof King
+                ? "King"
+                : null);
   const resolvedColor = color ?? piece?.color;
 
   const src = IMAGES[resolvedColor]?.[resolvedName];

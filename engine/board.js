@@ -205,7 +205,7 @@ export class Board {
     }
 
     // ── Pawn double move sets en passant target ───────────
-    if (movingPiece.constructor.name === "Pawn") {
+    if (movingPiece instanceof Pawn) {
       if (Math.abs(fromRow - toRow) === 2) {
         const midRow = (fromRow + toRow) / 2;
         this.enPassantTarget = [midRow, fromCol];
@@ -237,17 +237,17 @@ export class Board {
     // ── Update castling rights ────────────────────────────
     const color = movingPiece.color;
 
-    if (movingPiece.constructor.name === "King") {
+    if (movingPiece instanceof King) {
       this.castlingRights[color].K = false;
       this.castlingRights[color].Q = false;
     }
 
-    if (movingPiece.constructor.name === "Rook") {
+    if (movingPiece instanceof Rook) {
       if (fromCol === 0) this.castlingRights[color].Q = false;
       if (fromCol === 7) this.castlingRights[color].K = false;
     }
 
-    if (capturedPiece && capturedPiece.constructor.name === "Rook") {
+    if (capturedPiece && capturedPiece instanceof Rook) {
       const opp = capturedPiece.color;
       if (toCol === 0) this.castlingRights[opp].Q = false;
       if (toCol === 7) this.castlingRights[opp].K = false;
@@ -419,7 +419,13 @@ export class Board {
           empty = 0;
         }
 
-        const letter = piece.constructor.name[0];
+        let letter = "?";
+        if (piece instanceof Pawn) letter = "P";
+        else if (piece instanceof Knight) letter = "N";
+        else if (piece instanceof Bishop) letter = "B";
+        else if (piece instanceof Rook) letter = "R";
+        else if (piece instanceof Queen) letter = "Q";
+        else if (piece instanceof King) letter = "K";
         rowStr +=
           piece.color === "white" ? letter.toUpperCase() : letter.toLowerCase();
       }
