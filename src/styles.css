@@ -166,6 +166,53 @@ body {
   padding: 14px;
 }
 
+@media (max-width: 640px) {
+  .page {
+    padding: 18px 14px 28px;
+  }
+
+  .pageActions {
+    justify-content: stretch;
+  }
+
+  .pageActions .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  .playArea {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .board {
+    width: 100%;
+  }
+
+  .captured {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .promotionRow {
+    gap: 8px;
+  }
+
+  .promoButton {
+    padding: 9px 9px;
+  }
+
+  .statusRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
 .capturedSection + .capturedSection {
   margin-top: 14px;
 }

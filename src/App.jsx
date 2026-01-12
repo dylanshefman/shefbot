@@ -4,10 +4,10 @@ import { Color } from "../engine/util.js";
 import { findBestMove } from "../engine/search.js";
 
 import {
-  IconChessQueen,
-  IconChessRook,
-  IconChessBishop,
-  IconChessKnight,
+  iconChessQueen,
+  iconChessRook,
+  iconChessBishop,
+  iconChessKnight,
 } from "@tabler/icons-react";
 
 import ChessBoard from "./components/ChessBoard.jsx";
@@ -287,7 +287,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("Q")}
               >
-                <IconChessQueen size={18} stroke={2.2} />
+                <iconChessQueen size={18} stroke={2.2} />
                 Queen
               </button>
               <button
@@ -295,7 +295,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("R")}
               >
-                <IconChessRook size={18} stroke={2.2} />
+                <iconChessRook size={18} stroke={2.2} />
                 Rook
               </button>
               <button
@@ -303,7 +303,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("B")}
               >
-                <IconChessBishop size={18} stroke={2.2} />
+                <iconChessBishop size={18} stroke={2.2} />
                 Bishop
               </button>
               <button
@@ -311,7 +311,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("N")}
               >
-                <IconChessKnight size={18} stroke={2.2} />
+                <iconChessKnight size={18} stroke={2.2} />
                 Knight
               </button>
               <button
