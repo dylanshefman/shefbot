@@ -1,11 +1,11 @@
-import {
-  IconChessBishop,
-  IconChessKing,
-  IconChessKnight,
-  IconChessQueen,
-  IconChessRook,
-  IconChess,
-} from "@tabler/icons-react";
+import { 
+    IconChess,
+    IconChessBishop,
+    IconChessKing,
+    IconChessKnight,
+    IconChessQueen,
+    IconChessRook
+ } from '@tabler/icons-react';
 
 import { Color } from "../../engine/util.js";
 
@@ -26,7 +26,7 @@ export default function PieceIcon({ piece, size = 34 }) {
 
   return (
     <span className={isWhite ? "piece pieceWhite" : "piece pieceBlack"} aria-hidden="true">
-      <Icon size={size} stroke={2.25} />
+      <Icon size={size} strokeWidth={2.25} />
     </span>
   );
 }

@@ -3,12 +3,7 @@ import { Game } from "../engine/game.js";
 import { Color } from "../engine/util.js";
 import { findBestMove } from "../engine/search.js";
 
-import {
-  IconChessQueen,
-  IconChessRook,
-  IconChessBishop,
-  IconChessKnight,
-} from "@tabler/icons-react";
+import { IconChessQueen, IconChessRook, IconChessBishop, IconChessKnight } from '@tabler/icons-react';
 
 import ChessBoard from "./components/ChessBoard.jsx";
 import CapturedPieces from "./components/CapturedPieces.jsx";
@@ -287,7 +282,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("Q")}
               >
-                <IconChessQueen size={18} stroke={2.2} />
+                <IconChessQueen size={18} strokeWidth={2.2} />
                 Queen
               </button>
               <button
@@ -295,7 +290,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("R")}
               >
-                <IconChessRook size={18} stroke={2.2} />
+                <IconChessRook size={18} strokeWidth={2.2} />
                 Rook
               </button>
               <button
@@ -303,7 +298,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("B")}
               >
-                <IconChessBishop size={18} stroke={2.2} />
+                <IconChessBishop size={18} strokeWidth={2.2} />
                 Bishop
               </button>
               <button
@@ -311,7 +306,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("N")}
               >
-                <IconChessKnight size={18} stroke={2.2} />
+                <IconChessKnight size={18} strokeWidth={2.2} />
                 Knight
               </button>
               <button
