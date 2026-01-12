@@ -1,21 +1,21 @@
 import {
-  iconChessBishop,
-  iconChessKing,
-  iconChessKnight,
-  iconChessQueen,
-  iconChessRook,
-  iconChess,
+  IconChessBishop,
+  IconChessKing,
+  IconChessKnight,
+  IconChessQueen,
+  IconChessRook,
+  IconChess,
 } from "@tabler/icons-react";
 
 import { Color } from "../../engine/util.js";
 
 const ICONS = {
-  Pawn: iconChess,
-  Knight: iconChessKnight,
-  Bishop: iconChessBishop,
-  Rook: iconChessRook,
-  Queen: iconChessQueen,
-  King: iconChessKing,
+  Pawn: IconChess,
+  Knight: IconChessKnight,
+  Bishop: IconChessBishop,
+  Rook: IconChessRook,
+  Queen: IconChessQueen,
+  King: IconChessKing,
 };
 
 export default function PieceIcon({ piece, size = 34 }) {
