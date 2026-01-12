@@ -374,6 +374,14 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  line-height: 0;
+}
+
+.pieceImg {
+  display: block;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .pieceWhite { color: var(--piece-white); }

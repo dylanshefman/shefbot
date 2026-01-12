@@ -3,16 +3,9 @@ import { Game } from "../engine/game.js";
 import { Color } from "../engine/util.js";
 import { findBestMove } from "../engine/search.js";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChessQueen,
-  faChessRook,
-  faChessBishop,
-  faChessKnight,
-} from "@fortawesome/free-solid-svg-icons";
-
 import ChessBoard from "./components/ChessBoard.jsx";
 import CapturedPieces from "./components/CapturedPieces.jsx";
+import PieceIcon from "./components/PieceIcon.jsx";
 
 function getStatusText(game) {
   const legalMoves = game.legalMoves();
@@ -288,7 +281,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("Q")}
               >
-                <FontAwesomeIcon icon={faChessQueen} />
+                <PieceIcon pieceName="Queen" color={playerColor} size={18} />
                 Queen
               </button>
               <button
@@ -296,7 +289,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("R")}
               >
-                <FontAwesomeIcon icon={faChessRook} />
+                <PieceIcon pieceName="Rook" color={playerColor} size={18} />
                 Rook
               </button>
               <button
@@ -304,7 +297,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("B")}
               >
-                <FontAwesomeIcon icon={faChessBishop} />
+                <PieceIcon pieceName="Bishop" color={playerColor} size={18} />
                 Bishop
               </button>
               <button
@@ -312,7 +305,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("N")}
               >
-                <FontAwesomeIcon icon={faChessKnight} />
+                <PieceIcon pieceName="Knight" color={playerColor} size={18} />
                 Knight
               </button>
               <button

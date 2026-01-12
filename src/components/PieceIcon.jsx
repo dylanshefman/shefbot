@@ -1,33 +1,55 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChessPawn,
-  faChessKnight,
-  faChessBishop,
-  faChessRook,
-  faChessQueen,
-  faChessKing,
-} from "@fortawesome/free-solid-svg-icons";
+import pawnWhite from "../../assets/pieces/pawn-white.png";
+import pawnBlack from "../../assets/pieces/pawn-black.png";
+import knightWhite from "../../assets/pieces/knight-white.png";
+import knightBlack from "../../assets/pieces/knight-black.png";
+import bishopWhite from "../../assets/pieces/bishop-white.png";
+import bishopBlack from "../../assets/pieces/bishop-black.png";
+import rookWhite from "../../assets/pieces/rook-white.png";
+import rookBlack from "../../assets/pieces/rook-black.png";
+import queenWhite from "../../assets/pieces/queen-white.png";
+import queenBlack from "../../assets/pieces/queen-black.png";
+import kingWhite from "../../assets/pieces/king-white.png";
+import kingBlack from "../../assets/pieces/king-black.png";
 
 import { Color } from "../../engine/util.js";
 
-const ICONS = {
-  Pawn: faChessPawn,
-  Knight: faChessKnight,
-  Bishop: faChessBishop,
-  Rook: faChessRook,
-  Queen: faChessQueen,
-  King: faChessKing,
+const IMAGES = {
+  [Color.WHITE]: {
+    Pawn: pawnWhite,
+    Knight: knightWhite,
+    Bishop: bishopWhite,
+    Rook: rookWhite,
+    Queen: queenWhite,
+    King: kingWhite,
+  },
+  [Color.BLACK]: {
+    Pawn: pawnBlack,
+    Knight: knightBlack,
+    Bishop: bishopBlack,
+    Rook: rookBlack,
+    Queen: queenBlack,
+    King: kingBlack,
+  },
 };
 
-export default function PieceIcon({ piece, size = 34 }) {
-  const icon = ICONS[piece.constructor.name];
-  if (!icon) return null;
+export default function PieceIcon({ piece, pieceName, color, size = 34 }) {
+  const resolvedName = pieceName ?? piece?.constructor?.name;
+  const resolvedColor = color ?? piece?.color;
 
-  const isWhite = piece.color === Color.WHITE;
+  const src = IMAGES[resolvedColor]?.[resolvedName];
+  if (!src) return null;
+
+  const isWhite = resolvedColor === Color.WHITE;
 
   return (
     <span className={isWhite ? "piece pieceWhite" : "piece pieceBlack"} aria-hidden="true">
-      <FontAwesomeIcon icon={icon} style={{ fontSize: size }} />
+      <img
+        className="pieceImg"
+        src={src}
+        alt=""
+        draggable="false"
+        style={{ width: size, height: size }}
+      />
     </span>
   );
 }
