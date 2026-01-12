@@ -1,32 +1,33 @@
-import { 
-    IconChess,
-    IconChessBishop,
-    IconChessKing,
-    IconChessKnight,
-    IconChessQueen,
-    IconChessRook
- } from '@tabler/icons-react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChessPawn,
+  faChessKnight,
+  faChessBishop,
+  faChessRook,
+  faChessQueen,
+  faChessKing,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { Color } from "../../engine/util.js";
 
 const ICONS = {
-  Pawn: IconChess,
-  Knight: IconChessKnight,
-  Bishop: IconChessBishop,
-  Rook: IconChessRook,
-  Queen: IconChessQueen,
-  King: IconChessKing,
+  Pawn: faChessPawn,
+  Knight: faChessKnight,
+  Bishop: faChessBishop,
+  Rook: faChessRook,
+  Queen: faChessQueen,
+  King: faChessKing,
 };
 
 export default function PieceIcon({ piece, size = 34 }) {
-  const Icon = ICONS[piece.constructor.name];
-  if (!Icon) return null;
+  const icon = ICONS[piece.constructor.name];
+  if (!icon) return null;
 
   const isWhite = piece.color === Color.WHITE;
 
   return (
     <span className={isWhite ? "piece pieceWhite" : "piece pieceBlack"} aria-hidden="true">
-      <Icon size={size} strokeWidth={2.25} />
+      <FontAwesomeIcon icon={icon} style={{ fontSize: size }} />
     </span>
   );
 }

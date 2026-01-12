@@ -3,7 +3,13 @@ import { Game } from "../engine/game.js";
 import { Color } from "../engine/util.js";
 import { findBestMove } from "../engine/search.js";
 
-import { IconChessQueen, IconChessRook, IconChessBishop, IconChessKnight } from '@tabler/icons-react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChessQueen,
+  faChessRook,
+  faChessBishop,
+  faChessKnight,
+} from "@fortawesome/free-solid-svg-icons";
 
 import ChessBoard from "./components/ChessBoard.jsx";
 import CapturedPieces from "./components/CapturedPieces.jsx";
@@ -282,7 +288,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("Q")}
               >
-                <IconChessQueen size={18} strokeWidth={2.2} />
+                <FontAwesomeIcon icon={faChessQueen} />
                 Queen
               </button>
               <button
@@ -290,7 +296,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("R")}
               >
-                <IconChessRook size={18} strokeWidth={2.2} />
+                <FontAwesomeIcon icon={faChessRook} />
                 Rook
               </button>
               <button
@@ -298,7 +304,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("B")}
               >
-                <IconChessBishop size={18} strokeWidth={2.2} />
+                <FontAwesomeIcon icon={faChessBishop} />
                 Bishop
               </button>
               <button
@@ -306,7 +312,7 @@ export default function App() {
                 className="button promoButton"
                 onClick={() => onChoosePromotion("N")}
               >
-                <IconChessKnight size={18} strokeWidth={2.2} />
+                <FontAwesomeIcon icon={faChessKnight} />
                 Knight
               </button>
               <button
