@@ -370,6 +370,22 @@ body {
   opacity: 0.95;
 }
 
+.squareHintCastle::after {
+  /* Hide the default dot marker on castling squares. */
+  display: none;
+}
+
+.squareHintCastleIcon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: var(--border);
+  opacity: 0.95;
+}
+
 .piece {
   display: inline-flex;
   align-items: center;

@@ -61,6 +61,13 @@ export default function App() {
       .map((m) => m.toSq);
   }, [game, tick, selectedSquare]);
 
+  const highlightedMoves = useMemo(() => {
+    if (!selectedSquare) return [];
+    return game
+      .legalMoves()
+      .filter((m) => squaresEqual(m.fromSq, selectedSquare));
+  }, [game, tick, selectedSquare]);
+
   function forceRender() {
     setTick((t) => t + 1);
   }
@@ -261,6 +268,7 @@ export default function App() {
               perspective={playerColor ?? Color.WHITE}
               selectedSquare={selectedSquare}
               highlightedSquares={highlightedSquares}
+              highlightedMoves={highlightedMoves}
               lastMove={lastMove}
               kingFlashSquare={kingFlashSquare}
               checkmateAnim={checkmateAnim}
