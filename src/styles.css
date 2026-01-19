@@ -137,7 +137,7 @@ body {
 
 .boardCheckmate {
   position: relative;
-  animation: checkmateBounce 950ms ease-in-out;
+  animation: checkmateBounce 720ms cubic-bezier(0.2, 0.9, 0.2, 1);
 }
 
 .boardCheckmate::after {
@@ -154,7 +154,9 @@ body {
   );
   opacity: 0;
   pointer-events: none;
-  animation: checkmateSweep 950ms ease-in-out;
+  animation:
+    checkmateSweep 720ms ease-in-out,
+    checkmateSweep 720ms ease-in-out 180ms;
 }
 
 .captured {
@@ -316,7 +318,14 @@ body {
   inset: 0;
   background: rgba(124, 92, 255, 0.18);
   pointer-events: none;
-  animation: checkmatedKingPulse 950ms ease-in-out;
+  animation:
+    checkmatedKingPulse 720ms ease-in-out,
+    checkmatedKingPulse 720ms ease-in-out 180ms;
+}
+
+.boardCheckmate .squareCheckmatedKing .pieceImg {
+  transform-origin: 50% 70%;
+  animation: checkmatedKingShake 720ms ease-in-out;
 }
 
 @keyframes kingFlash {
@@ -328,8 +337,8 @@ body {
 
 @keyframes checkmateBounce {
   0% { transform: scale(1); }
-  30% { transform: scale(1.02); }
-  60% { transform: scale(0.995); }
+  28% { transform: scale(1.02); }
+  55% { transform: scale(0.992); }
   100% { transform: scale(1); }
 }
 
@@ -341,8 +350,26 @@ body {
 
 @keyframes checkmatedKingPulse {
   0% { opacity: 0; }
-  40% { opacity: 0.9; }
+  35% { opacity: 0.9; }
   100% { opacity: 0; }
+}
+
+@keyframes checkmatedKingShake {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+  20% { transform: translate3d(-1px, 0, 0) rotate(-6deg) scale(1.03); }
+  40% { transform: translate3d(1px, 0, 0) rotate(6deg) scale(1.03); }
+  60% { transform: translate3d(-1px, 0, 0) rotate(-4deg) scale(1.02); }
+  80% { transform: translate3d(1px, 0, 0) rotate(4deg) scale(1.01); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boardCheckmate,
+  .boardCheckmate::after,
+  .squareCheckmatedKing::after,
+  .boardCheckmate .squareCheckmatedKing .pieceImg {
+    animation: none !important;
+  }
 }
 
 .squareHint {

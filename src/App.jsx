@@ -93,17 +93,25 @@ export default function App() {
       return;
     }
 
-    // Wait 3 seconds, then play a fun checkmate animation.
+    // Start quickly (after the final move renders), then play the animation.
     const kingSq = game.findKing(checkmateInfo.checkmatedColor);
-    setCheckmatedKingSquare(kingSq);
+
+    // Toggle off then on to reliably restart CSS animations.
+    setCheckmateAnim(false);
+
+    const startDelayMs = 150;
+    const animDurationMs = 1050;
 
     const startTimer = window.setTimeout(() => {
-      setCheckmateAnim(true);
-    }, 3000);
+      setCheckmatedKingSquare(kingSq);
+      window.requestAnimationFrame(() => {
+        setCheckmateAnim(true);
+      });
+    }, startDelayMs);
 
     const stopTimer = window.setTimeout(() => {
       setCheckmateAnim(false);
-    }, 3000 + 1400);
+    }, startDelayMs + animDurationMs);
 
     return () => {
       window.clearTimeout(startTimer);
